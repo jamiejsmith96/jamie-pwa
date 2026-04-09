@@ -1,0 +1,192 @@
+/*
+ * Jamie PWA — design tokens
+ *
+ * Lean athletic aesthetic. Neutral surfaces, single lime accent, tight
+ * numerals via Inter tabular figures. Dark and light themes are siblings,
+ * not inverts — both aim to feel deliberate.
+ *
+ * Theme resolution:
+ *   1. [data-theme="light"|"dark"] on <html> (explicit override)
+ *   2. prefers-color-scheme (system default)
+ */
+
+:root {
+  /* spacing — 4px rhythm */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* radii */
+  --radius-1: 6px;
+  --radius-2: 10px;
+  --radius-3: 14px;
+  --radius-4: 20px;
+  --radius-pill: 999px;
+
+  /* type scale */
+  --type-xs: 12px;
+  --type-xs-lh: 16px;
+  --type-sm: 13px;
+  --type-sm-lh: 18px;
+  --type-md: 15px;
+  --type-md-lh: 22px;
+  --type-lg: 18px;
+  --type-lg-lh: 24px;
+  --type-xl: 24px;
+  --type-xl-lh: 30px;
+  --type-2xl: 32px;
+  --type-2xl-lh: 36px;
+  --type-3xl: 44px;
+  --type-3xl-lh: 48px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+
+  /* touch + layout */
+  --touch-min: 48px;
+  --nav-height: 64px;
+  --topbar-height: 56px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+
+  /* fonts: Inter via system fallback to avoid network cost; enables cv11 + tnum */
+  --font-stack: "Inter", "SF Pro Text", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter Display", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 280ms;
+  --dur-4: 420ms;
+
+  /* ===== DARK (default) ===== */
+  --bg-0: #0b0c0e;           /* app background */
+  --bg-1: #131518;           /* raised surface */
+  --bg-2: #1a1d22;           /* hover / secondary */
+  --bg-3: #23272e;           /* borders / dividers */
+  --bg-4: #2d323a;           /* strong border */
+  --fg-0: #f4f5f7;           /* primary text */
+  --fg-1: #a8adb7;           /* secondary text */
+  --fg-2: #6b707a;           /* tertiary / dim */
+
+  --accent: #c6ff3d;         /* electric lime */
+  --accent-hi: #d7ff6e;
+  --accent-lo: #a8e81e;
+  --accent-fg: #0a0b0d;
+  --accent-soft: rgba(198, 255, 61, 0.12);
+
+  --success: #5ee08a;
+  --warn: #ffca55;
+  --danger: #ff6b6b;
+  --ring: var(--accent);
+
+  --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 12px 40px rgba(0, 0, 0, 0.55);
+  --hairline: 1px solid var(--bg-3);
+
+  /* Ionic variable mapping */
+  --ion-background-color: var(--bg-0);
+  --ion-background-color-rgb: 11, 12, 14;
+  --ion-text-color: var(--fg-0);
+  --ion-text-color-rgb: 244, 245, 247;
+  --ion-color-primary: var(--accent);
+  --ion-color-primary-rgb: 198, 255, 61;
+  --ion-color-primary-contrast: var(--accent-fg);
+  --ion-color-primary-contrast-rgb: 10, 11, 13;
+  --ion-tab-bar-background: var(--bg-1);
+  --ion-tab-bar-color: var(--fg-1);
+  --ion-tab-bar-color-selected: var(--accent);
+  --ion-toolbar-background: var(--bg-0);
+  --ion-toolbar-color: var(--fg-0);
+  --ion-item-background: var(--bg-1);
+  --ion-item-color: var(--fg-0);
+  --ion-border-color: var(--bg-3);
+}
+
+/* ===== LIGHT (explicit) ===== */
+:root[data-theme="light"] {
+  --bg-0: #f6f6f4;           /* warm off-white */
+  --bg-1: #ffffff;
+  --bg-2: #efefec;
+  --bg-3: #e3e3df;
+  --bg-4: #cfcfc9;
+  --fg-0: #0c0d0e;
+  --fg-1: #4b4e55;
+  --fg-2: #7a7e86;
+
+  --accent: #2f6e1e;         /* forest, AA on white */
+  --accent-hi: #3b8a25;
+  --accent-lo: #245515;
+  --accent-fg: #ffffff;
+  --accent-soft: rgba(47, 110, 30, 0.1);
+
+  --success: #157f3c;
+  --warn: #9a5a00;
+  --danger: #b01515;
+  --ring: var(--accent);
+
+  --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 2px rgba(13, 14, 16, 0.06);
+  --shadow-2: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 4px 14px rgba(13, 14, 16, 0.08);
+  --shadow-3: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 14px 40px rgba(13, 14, 16, 0.12);
+
+  --ion-background-color: var(--bg-0);
+  --ion-background-color-rgb: 246, 246, 244;
+  --ion-text-color: var(--fg-0);
+  --ion-text-color-rgb: 12, 13, 14;
+  --ion-color-primary: var(--accent);
+  --ion-color-primary-rgb: 47, 110, 30;
+  --ion-color-primary-contrast: var(--accent-fg);
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+}
+
+/* ===== SYSTEM LIGHT (no override) ===== */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg-0: #f6f6f4;
+    --bg-1: #ffffff;
+    --bg-2: #efefec;
+    --bg-3: #e3e3df;
+    --bg-4: #cfcfc9;
+    --fg-0: #0c0d0e;
+    --fg-1: #4b4e55;
+    --fg-2: #7a7e86;
+
+    --accent: #2f6e1e;
+    --accent-hi: #3b8a25;
+    --accent-lo: #245515;
+    --accent-fg: #ffffff;
+    --accent-soft: rgba(47, 110, 30, 0.1);
+
+    --success: #157f3c;
+    --warn: #9a5a00;
+    --danger: #b01515;
+    --ring: var(--accent);
+
+    --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 2px rgba(13, 14, 16, 0.06);
+    --shadow-2: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 4px 14px rgba(13, 14, 16, 0.08);
+    --shadow-3: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 14px 40px rgba(13, 14, 16, 0.12);
+
+    --ion-background-color: var(--bg-0);
+    --ion-background-color-rgb: 246, 246, 244;
+    --ion-text-color: var(--fg-0);
+    --ion-text-color-rgb: 12, 13, 14;
+    --ion-color-primary: var(--accent);
+    --ion-color-primary-rgb: 47, 110, 30;
+    --ion-color-primary-contrast: var(--accent-fg);
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "jamie-pwa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Jamie PWA — offline-first training, nutrition, and daily log",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "biome check src/",
+    "format": "biome check --write src/",
+    "test": "playwright test",
+    "recipes": "node tools/build-recipes.js",
+    "content": "node tools/build-recipes.js && node tools/build-content.js",
+    "usda:fetch": "node tools/fetch-usda.js",
+    "usda:verify": "node tools/verify-usda.js"
+  },
+  "dependencies": {
+    "@ionic/core": "^8.4.0",
+    "chart.js": "^4.4.6",
+    "date-fns": "^4.1.0",
+    "idb": "^8.0.0",
+    "marked": "^15.0.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@playwright/test": "^1.48.2",
+    "mammoth": "^1.8.0",
+    "vite": "^5.4.11",
+    "vite-plugin-pwa": "^0.21.1",
+    "xlsx": "^0.18.5"
+  }
+}
