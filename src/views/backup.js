@@ -7,9 +7,9 @@
  * Stores last backup timestamp; banner if >14 days since last export.
  */
 
+import { fmtDisplay, todayISO } from '../lib/dates.js';
 import { exportAllStores, importAllStores, previewImport } from '../lib/db.js';
 import { loadSettings, updateSettings } from '../lib/settings.js';
-import { todayISO, fmtDisplay } from '../lib/dates.js';
 
 class JamieBackup extends HTMLElement {
   constructor() {

@@ -104,7 +104,7 @@ const IN_PROGRESS_KEY = 'jamie.in_progress_session';
 export async function getLastSetForExercise(exerciseId) {
   const db = await getDB();
   const idx = db.transaction('training_log').store.index('by_exercise');
-  let cursor = await idx.openCursor(exerciseId, 'prev');
+  const cursor = await idx.openCursor(exerciseId, 'prev');
   if (!cursor) return null;
   return cursor.value;
 }
@@ -304,8 +304,8 @@ export async function previewImport(obj) {
     const existing = await db.getAll(s);
     const keyPath = s === 'daily_log' || s === 'reviews' ? 'date' : 'id';
     const existingKeys = new Set(existing.map((r) => r[keyPath]));
-    let n = 0,
-      c = 0;
+    let n = 0;
+    let c = 0;
     for (const r of incoming) {
       if (existingKeys.has(r[keyPath])) c++;
       else n++;

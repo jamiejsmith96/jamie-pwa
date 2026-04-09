@@ -8,8 +8,8 @@
  */
 
 import { getPhase, getSessionForToday, getSessionsForPhase } from '../lib/content.js';
-import { getSessionsThisWeek } from '../lib/db.js';
 import { fmtDisplay, parseYMD, todayISO } from '../lib/dates.js';
+import { getSessionsThisWeek } from '../lib/db.js';
 import { loadSettings } from '../lib/settings.js';
 
 const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];

@@ -13,6 +13,7 @@
  */
 
 import { getExercise, getSessionForToday } from '../lib/content.js';
+import { nowUTC, todayISO } from '../lib/dates.js';
 import {
   clearInProgressSession,
   getLastSetForExercise,
@@ -21,7 +22,6 @@ import {
   saveInProgressSession,
   uuid,
 } from '../lib/db.js';
-import { nowUTC, todayISO } from '../lib/dates.js';
 import { haptics } from '../lib/haptics.js';
 import { loadSettings } from '../lib/settings.js';
 
@@ -29,7 +29,8 @@ const DEFAULT_REST_S = 120;
 
 function beep(freq = 880, duration = 0.15) {
   try {
-    const ctx = beep._ctx || (beep._ctx = new (window.AudioContext || window.webkitAudioContext)());
+    if (!beep._ctx) beep._ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const ctx = beep._ctx;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.frequency.value = freq;

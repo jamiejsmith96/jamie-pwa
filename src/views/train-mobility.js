@@ -7,8 +7,8 @@
  * session_log row with type='mobility'.
  */
 
-import { getDB, uuid } from '../lib/db.js';
 import { nowUTC, todayISO } from '../lib/dates.js';
+import { getDB, uuid } from '../lib/db.js';
 import { haptics } from '../lib/haptics.js';
 
 const DEFAULT_BLOCKS = [

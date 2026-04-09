@@ -41,9 +41,12 @@ class JamieLog extends HTMLElement {
           : row.weight_kg.toFixed(1)
         : '';
 
-    const weightKpi = row.weight_kg != null
-      ? (unit === 'lb' ? (row.weight_kg * LB_PER_KG).toFixed(1) : row.weight_kg.toFixed(1))
-      : '—';
+    const weightKpi =
+      row.weight_kg != null
+        ? unit === 'lb'
+          ? (row.weight_kg * LB_PER_KG).toFixed(1)
+          : row.weight_kg.toFixed(1)
+        : '—';
     const sleepKpi = Number.isFinite(row.sleep_h) ? String(row.sleep_h) : '—';
     const recoveryKpi = Number.isFinite(row.recovery_1_10) ? String(row.recovery_1_10) : '—';
 

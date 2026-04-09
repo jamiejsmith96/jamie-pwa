@@ -6,17 +6,17 @@
  * Review sub-tab applies decision rules from content.decision_rules.
  */
 
+import { getAllExercises, getDecisionRules } from '../lib/content.js';
+import { fmtDisplay, todayISO } from '../lib/dates.js';
 import {
+  addReview,
+  getAllCardioLogs,
   getAllDailyLogs,
   getAllSessionLogs,
   getAllTrainingLogs,
-  getAllCardioLogs,
-  addReview,
   getLatestReview,
 } from '../lib/db.js';
-import { getDecisionRules, getAllExercises } from '../lib/content.js';
 import { loadSettings } from '../lib/settings.js';
-import { todayISO, fmtDisplay } from '../lib/dates.js';
 
 let ChartMod = null;
 async function getChart() {
@@ -439,14 +439,14 @@ class JamieStats extends HTMLElement {
     body.querySelector('[data-act="export"]').addEventListener('click', async () => {
       const md = [
         `# Sunday review — ${todayISO()}`,
-        ``,
+        '',
         `- Phase: ${phase}`,
         `- Weight 7d avg: ${w7disp} ${unit} (Δ ${deltaDisp})`,
         `- Sessions: ${sessions7} / 3`,
         `- Sleep avg: ${sleep7 != null ? sleep7.toFixed(1) + ' h' : '—'}`,
         `- Cardio: ${Math.round(cardio7)} min`,
-        ``,
-        `## Decisions`,
+        '',
+        '## Decisions',
         ...(matched.length
           ? matched.map((r) => `- **${r.action}** — ${r.message}`)
           : ['- No rules triggered.']),

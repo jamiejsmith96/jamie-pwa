@@ -6,7 +6,7 @@
  * Footer on every guide: "Evidence synthesis, not medical advice."
  */
 
-import { getGuide, getAllEvidence } from '../lib/content.js';
+import { getAllEvidence, getGuide } from '../lib/content.js';
 
 const GUIDES = [
   { key: 'phase0', label: 'Phase 0' },

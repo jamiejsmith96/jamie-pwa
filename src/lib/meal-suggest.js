@@ -214,9 +214,7 @@ export function suggestDayPlan(recipes, ctx) {
 
     // Pick the best-scoring recipe that matches the slot category and isn't
     // already used today (variety, even pre-v2).
-    const candidates = recipes.filter(
-      (r) => recipeMatchesSlot(r, slot) && !usedIds.has(r.id),
-    );
+    const candidates = recipes.filter((r) => recipeMatchesSlot(r, slot) && !usedIds.has(r.id));
     if (candidates.length === 0) {
       plan.push({
         slot,
@@ -260,8 +258,7 @@ export function suggestDayPlan(recipes, ctx) {
       const suggP = entry.suggestion?.macros_per_serving?.p || 0;
       const suggK = entry.suggestion?.macros_per_serving?.kcal || 0;
       acc.p += eatenP + (entry.status === 'suggested' || entry.status === 'partial' ? suggP : 0);
-      acc.kcal +=
-        eatenK + (entry.status === 'suggested' || entry.status === 'partial' ? suggK : 0);
+      acc.kcal += eatenK + (entry.status === 'suggested' || entry.status === 'partial' ? suggK : 0);
       return acc;
     },
     { p: 0, kcal: 0 },
@@ -304,12 +301,14 @@ export function currentSlot(date = new Date()) {
 }
 
 export function slotLabel(slot) {
-  return {
-    breakfast: 'Breakfast',
-    lunch: 'Lunch',
-    snack: 'Snack',
-    dinner: 'Dinner',
-  }[slot] || 'Next meal';
+  return (
+    {
+      breakfast: 'Breakfast',
+      lunch: 'Lunch',
+      snack: 'Snack',
+      dinner: 'Dinner',
+    }[slot] || 'Next meal'
+  );
 }
 
 /**

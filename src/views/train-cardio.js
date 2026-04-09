@@ -7,8 +7,8 @@
  * produce an oscillator beep and a haptic pulse.
  */
 
-import { addCardioLog, getAllCardioLogs, uuid } from '../lib/db.js';
 import { nowUTC } from '../lib/dates.js';
+import { addCardioLog, getAllCardioLogs, uuid } from '../lib/db.js';
 import { haptics } from '../lib/haptics.js';
 
 const PHASES = [
@@ -19,7 +19,8 @@ const PHASES = [
 
 function beep(freq = 880, duration = 0.15) {
   try {
-    const ctx = beep._ctx || (beep._ctx = new (window.AudioContext || window.webkitAudioContext)());
+    if (!beep._ctx) beep._ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const ctx = beep._ctx;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.frequency.value = freq;

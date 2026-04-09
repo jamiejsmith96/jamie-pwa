@@ -53,16 +53,14 @@ class JamieToday extends HTMLElement {
         Number.isFinite(log?.recovery_1_10),
     );
 
-    const [weightVal, weightUnit] = weightDisplay === '—'
-      ? ['—', '']
-      : weightDisplay.split(' ');
+    const [weightVal, weightUnit] = weightDisplay === '—' ? ['—', ''] : weightDisplay.split(' ');
     const [sleepVal, sleepUnit] = sleepDisplay === '—' ? ['—', ''] : sleepDisplay.split(' ');
 
     this.innerHTML = `
       <section class="view" aria-labelledby="today-title">
         <header class="hero">
           <p class="hero-eyebrow">${greetingFor()} · ${fmtDisplay(today)}</p>
-          <h1 id="today-title" class="hero-title">${todaySession ? (todaySession.name || todaySession.id) : 'Rest day'}</h1>
+          <h1 id="today-title" class="hero-title">${todaySession ? todaySession.name || todaySession.id : 'Rest day'}</h1>
           <p class="hero-sub">Phase ${settings.phase}${settings.phase_start_date ? ` · started ${fmtDisplay(settings.phase_start_date)}` : ''}</p>
         </header>
 

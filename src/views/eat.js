@@ -12,10 +12,10 @@
  */
 
 import { content, getRecipe, getRecipesFiltered } from '../lib/content.js';
-import { loadSettings, updateSettings } from '../lib/settings.js';
 import { todayISO } from '../lib/dates.js';
-import { getNutritionLogsForDate, deleteNutritionLog } from '../lib/db.js';
-import { suggestDayPlan, buildSuggestContext, explainContext } from '../lib/meal-suggest.js';
+import { deleteNutritionLog, getNutritionLogsForDate } from '../lib/db.js';
+import { buildSuggestContext, explainContext, suggestDayPlan } from '../lib/meal-suggest.js';
+import { loadSettings, updateSettings } from '../lib/settings.js';
 import './recipe-detail.js';
 
 const WEEKDAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -240,7 +240,10 @@ class JamieEat extends HTMLElement {
       </article>
       <div class="section-head"><h2>${results.length} of ${recipes.length}</h2></div>
       <div class="stack">
-        ${results.slice(0, 120).map((r) => recipeCard(r)).join('')}
+        ${results
+          .slice(0, 120)
+          .map((r) => recipeCard(r))
+          .join('')}
       </div>
       ${results.length > 120 ? `<p class="muted" style="text-align:center;margin-top:var(--space-3)">Showing first 120. Narrow filters to see more.</p>` : ''}
     `;

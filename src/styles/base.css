@@ -155,9 +155,7 @@ table,
   padding: var(--space-4) var(--space-4);
   margin-bottom: var(--space-4);
   box-shadow: var(--shadow-1);
-  transition:
-    transform var(--dur-2) var(--ease-out),
-    box-shadow var(--dur-2) var(--ease-out),
+  transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out),
     border-color var(--dur-2) var(--ease-out);
 }
 .card:hover {
@@ -258,9 +256,7 @@ textarea {
   border: 1px solid var(--bg-3);
   border-radius: var(--radius-2);
   font: inherit;
-  transition:
-    border-color var(--dur-2) var(--ease-out),
-    background var(--dur-2) var(--ease-out);
+  transition: border-color var(--dur-2) var(--ease-out), background var(--dur-2) var(--ease-out);
 }
 textarea {
   min-height: calc(var(--touch-min) * 2);
@@ -299,11 +295,8 @@ textarea:focus-visible {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
-  transition:
-    transform var(--dur-1) var(--ease-out),
-    background var(--dur-2) var(--ease-out),
-    border-color var(--dur-2) var(--ease-out),
-    box-shadow var(--dur-2) var(--ease-out);
+  transition: transform var(--dur-1) var(--ease-out), background var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out);
   box-shadow: var(--shadow-1);
 }
 .btn:hover {
@@ -386,11 +379,8 @@ textarea:focus-visible {
   font-size: var(--type-sm);
   font-weight: var(--weight-semibold);
   cursor: pointer;
-  transition:
-    background var(--dur-2) var(--ease-out),
-    color var(--dur-2) var(--ease-out),
-    border-color var(--dur-2) var(--ease-out),
-    transform var(--dur-1) var(--ease-out);
+  transition: background var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out), transform var(--dur-1) var(--ease-out);
 }
 .chip:hover {
   border-color: var(--bg-4);
@@ -425,9 +415,7 @@ textarea:focus-visible {
   cursor: pointer;
   font-weight: var(--weight-semibold);
   font-size: var(--type-sm);
-  transition:
-    background var(--dur-2) var(--ease-out),
-    color var(--dur-2) var(--ease-out);
+  transition: background var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out);
 }
 .seg-btn:hover {
   color: var(--fg-0);
@@ -566,13 +554,41 @@ textarea:focus-visible {
   gap: var(--space-2);
   flex-wrap: wrap;
 }
-.badge.tier-t1 { background: #16a34a; color: #fff; border-color: #16a34a; }
-.badge.tier-t2 { background: #65a30d; color: #fff; border-color: #65a30d; }
-.badge.tier-t3 { background: #ca8a04; color: #fff; border-color: #ca8a04; }
-.badge.tier-t4 { background: #ea580c; color: #fff; border-color: #ea580c; }
-.badge.tier-t5 { background: #9333ea; color: #fff; border-color: #9333ea; }
-.badge.tier-t6 { background: #64748b; color: #fff; border-color: #64748b; }
-.badge-grade { background: var(--bg-2); color: var(--fg-0); border-color: var(--bg-4); }
+.badge.tier-t1 {
+  background: #16a34a;
+  color: #fff;
+  border-color: #16a34a;
+}
+.badge.tier-t2 {
+  background: #65a30d;
+  color: #fff;
+  border-color: #65a30d;
+}
+.badge.tier-t3 {
+  background: #ca8a04;
+  color: #fff;
+  border-color: #ca8a04;
+}
+.badge.tier-t4 {
+  background: #ea580c;
+  color: #fff;
+  border-color: #ea580c;
+}
+.badge.tier-t5 {
+  background: #9333ea;
+  color: #fff;
+  border-color: #9333ea;
+}
+.badge.tier-t6 {
+  background: #64748b;
+  color: #fff;
+  border-color: #64748b;
+}
+.badge-grade {
+  background: var(--bg-2);
+  color: var(--fg-0);
+  border-color: var(--bg-4);
+}
 
 .evidence-list {
   display: grid;
@@ -645,8 +661,7 @@ ion-modal ion-content {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(600px 220px at 85% -10%, var(--accent-soft), transparent 70%),
+  background: radial-gradient(600px 220px at 85% -10%, var(--accent-soft), transparent 70%),
     radial-gradient(400px 200px at 10% 110%, var(--accent-soft), transparent 70%);
   z-index: -1;
   pointer-events: none;
@@ -704,9 +719,7 @@ ion-modal ion-content {
   min-width: 0;
   overflow: hidden;
   justify-content: space-between;
-  transition:
-    transform var(--dur-2) var(--ease-out),
-    border-color var(--dur-2) var(--ease-out);
+  transition: transform var(--dur-2) var(--ease-out), border-color var(--dur-2) var(--ease-out);
 }
 .kpi-tile:hover {
   border-color: var(--bg-4);
@@ -789,26 +802,40 @@ ion-modal ion-content {
   animation: card-in var(--dur-4) var(--ease-out) both;
 }
 .view .card:nth-child(1),
-.view .kpi-tile:nth-child(1) { animation-delay: 40ms; }
+.view .kpi-tile:nth-child(1) {
+  animation-delay: 40ms;
+}
 .view .card:nth-child(2),
-.view .kpi-tile:nth-child(2) { animation-delay: 90ms; }
+.view .kpi-tile:nth-child(2) {
+  animation-delay: 90ms;
+}
 .view .card:nth-child(3),
-.view .kpi-tile:nth-child(3) { animation-delay: 140ms; }
-.view .card:nth-child(4) { animation-delay: 190ms; }
-.view .card:nth-child(5) { animation-delay: 240ms; }
+.view .kpi-tile:nth-child(3) {
+  animation-delay: 140ms;
+}
+.view .card:nth-child(4) {
+  animation-delay: 190ms;
+}
+.view .card:nth-child(5) {
+  animation-delay: 240ms;
+}
 
 @keyframes card-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== Primary CTA gradient variant ===== */
 .btn-hero {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-lo) 100%);
   border-color: var(--accent-lo);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.2) inset,
-    0 6px 20px -6px var(--accent-soft);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 6px 20px -6px var(--accent-soft);
 }
 .btn-hero:hover {
   background: linear-gradient(135deg, var(--accent-hi) 0%, var(--accent) 100%);

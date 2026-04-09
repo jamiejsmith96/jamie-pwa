@@ -72,7 +72,7 @@ export function getSessionForToday(phase, dayOfWeek) {
   ];
   // Find a session whose phase matches and whose day matches today.
   const direct = (content.sessions || []).find(
-    (s) => s.phase === phase && s.day === dayName && phaseDef.session_ids.includes(s.id)
+    (s) => s.phase === phase && s.day === dayName && phaseDef.session_ids.includes(s.id),
   );
   if (direct) return direct;
   // Fallback: no session scheduled for this day in this phase = rest day.
@@ -148,7 +148,7 @@ export function getGuide(key) {
  */
 export function getDecisionRules(phase) {
   const key = `P${phase}`;
-  return (content.decision_rules && content.decision_rules[key]) || [];
+  return content.decision_rules?.[key] || [];
 }
 
 /**
@@ -157,7 +157,7 @@ export function getDecisionRules(phase) {
  */
 export function getCardioPrescription(phase, week) {
   const key = `P${phase}`;
-  const node = content.cardio_prescription && content.cardio_prescription[key];
+  const node = content.cardio_prescription?.[key];
   if (!node) return null;
   if (phase !== 0) return node;
   if (!week || week <= 3) return { ...node, current: node.weeks_1_3, week };

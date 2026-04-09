@@ -5,9 +5,9 @@
  * reset all data, about.
  */
 
-import { DEFAULT_SETTINGS, loadSettings, saveSettings, updateSettings } from '../lib/settings.js';
+import { getAllEvidence, getContentMeta } from '../lib/content.js';
 import { clearAllData } from '../lib/db.js';
-import { getContentMeta, getAllEvidence } from '../lib/content.js';
+import { DEFAULT_SETTINGS, loadSettings, saveSettings, updateSettings } from '../lib/settings.js';
 
 class JamieSettings extends HTMLElement {
   connectedCallback() {

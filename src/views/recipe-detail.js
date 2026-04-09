@@ -150,9 +150,9 @@ class JamieRecipeDetail extends HTMLElement {
       });
     });
     modal?.querySelector('[data-act="close"]')?.addEventListener('click', () => this.close());
-    modal?.querySelector('[data-act="shopping"]')?.addEventListener('click', () =>
-      this.copyShopping(),
-    );
+    modal
+      ?.querySelector('[data-act="shopping"]')
+      ?.addEventListener('click', () => this.copyShopping());
     modal?.querySelector('[data-act="log"]')?.addEventListener('click', () => this.logMeal());
   }
 
