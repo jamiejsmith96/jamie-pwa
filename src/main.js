@@ -23,19 +23,19 @@ import { initialize, setAssetPath } from '@ionic/core/components';
 // explicitly to register the element. This replaces @ionic/core/loader,
 // whose lazy chunk URLs Vite can't resolve in production builds.
 import { defineCustomElement as defineIonApp } from '@ionic/core/components/ion-app.js';
-import { defineCustomElement as defineIonHeader } from '@ionic/core/components/ion-header.js';
-import { defineCustomElement as defineIonToolbar } from '@ionic/core/components/ion-toolbar.js';
-import { defineCustomElement as defineIonTitle } from '@ionic/core/components/ion-title.js';
-import { defineCustomElement as defineIonButtons } from '@ionic/core/components/ion-buttons.js';
 import { defineCustomElement as defineIonButton } from '@ionic/core/components/ion-button.js';
-import { defineCustomElement as defineIonIcon } from 'ionicons/components/ion-icon.js';
-import { setAssetPath as setIoniconAssetPath } from 'ionicons/components';
+import { defineCustomElement as defineIonButtons } from '@ionic/core/components/ion-buttons.js';
 import { defineCustomElement as defineIonContent } from '@ionic/core/components/ion-content.js';
 import { defineCustomElement as defineIonFooter } from '@ionic/core/components/ion-footer.js';
-import { defineCustomElement as defineIonTabBar } from '@ionic/core/components/ion-tab-bar.js';
-import { defineCustomElement as defineIonTabButton } from '@ionic/core/components/ion-tab-button.js';
+import { defineCustomElement as defineIonHeader } from '@ionic/core/components/ion-header.js';
 import { defineCustomElement as defineIonLabel } from '@ionic/core/components/ion-label.js';
 import { defineCustomElement as defineIonModal } from '@ionic/core/components/ion-modal.js';
+import { defineCustomElement as defineIonTabBar } from '@ionic/core/components/ion-tab-bar.js';
+import { defineCustomElement as defineIonTabButton } from '@ionic/core/components/ion-tab-button.js';
+import { defineCustomElement as defineIonTitle } from '@ionic/core/components/ion-title.js';
+import { defineCustomElement as defineIonToolbar } from '@ionic/core/components/ion-toolbar.js';
+import { setAssetPath as setIoniconAssetPath } from 'ionicons/components';
+import { defineCustomElement as defineIonIcon } from 'ionicons/components/ion-icon.js';
 
 function registerIonicComponents() {
   defineIonApp();
