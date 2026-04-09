@@ -9,19 +9,21 @@ import { expect, test } from '@playwright/test';
 
 test('onboarding, log a weight, reload, weight persists', async ({ page }) => {
   await page.goto('/');
+  // Wait for async content fetch + router mount
+  await expect(page.locator('jamie-onboarding')).toBeAttached({ timeout: 10000 });
 
   // Onboarding screen 1 — Welcome
-  await expect(page.getByRole('heading', { name: 'Welcome' })).toBeVisible();
-  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.locator('jamie-onboarding #ob-title')).toHaveText('Yours, locally');
+  await page.locator('jamie-onboarding [data-action="next"]').click();
 
   // Onboarding screen 2 — Pick phase (default Phase 0)
-  await expect(page.getByRole('heading', { name: 'Pick your phase' })).toBeVisible();
-  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.locator('jamie-onboarding #ob-title')).toHaveText('Pick your phase');
+  await page.locator('jamie-onboarding [data-action="next"]').click();
 
-  // Onboarding screen 3 — Quick baseline
-  await expect(page.getByRole('heading', { name: 'Quick baseline' })).toBeVisible();
+  // Onboarding screen 3 — Baseline weight
+  await expect(page.locator('jamie-onboarding #ob-title')).toHaveText('Starting weight');
   await page.locator('#ob-weight').fill('165');
-  await page.getByRole('button', { name: 'Finish' }).click();
+  await page.locator('jamie-onboarding [data-action="next"]').click();
 
   // Land on Today — assert the heading exists
   await expect(page.locator('jamie-today h1')).toBeVisible();
@@ -30,7 +32,7 @@ test('onboarding, log a weight, reload, weight persists', async ({ page }) => {
   await page.evaluate(() => {
     window.location.hash = '#/log';
   });
-  await expect(page.locator('jamie-log h1')).toHaveText('Daily log');
+  await expect(page.locator('jamie-log #log-title')).toHaveText('Daily log');
 
   // Update the weight field explicitly, blur to save
   const weightInput = page.locator('#log-weight');
